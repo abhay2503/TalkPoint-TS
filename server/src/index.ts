@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
+
 app.get("/api/getFeedback", async (req: Request, res: Response) => {
     try {
         const feedbacks = await prisma.feedBack.findMany()
