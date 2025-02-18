@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-// import cors from "cors";
+import cors from "cors";
 
 import prisma from './utils/db'
 import path from 'path';
@@ -11,8 +11,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-
+app.use(cors())
 
 
 app.get("/api/getFeedback", async (req: Request, res: Response) => {

@@ -4,13 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-// import cors from "cors";
+const cors_1 = __importDefault(require("cors"));
 const db_1 = __importDefault(require("./utils/db"));
 const app = (0, express_1.default)();
 const PORT = 3000;
 // app.use(cors());
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
+app.use((0, cors_1.default)());
 app.get("/api/getFeedback", async (req, res) => {
     try {
         const feedbacks = await db_1.default.feedBack.findMany();
