@@ -16,7 +16,7 @@ app.get("/api/getFeedback", async (req, res) => {
     try {
         const feedbacks = await db_1.default.feedBack.findMany();
         console.log(feedbacks);
-        const serializedFeedbacks = feedbacks.map(fb => (Object.assign(Object.assign({}, fb), { id: fb.id.toString() // Convert BigInt to string
+        const serializedFeedbacks = feedbacks.map(fb => (Object.assign(Object.assign({}, fb), { id: fb.id.toString() // bcoz stringify function will create problem with bigint
          })));
         res.status(201).json({ feedbacks: serializedFeedbacks });
     }

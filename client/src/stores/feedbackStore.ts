@@ -42,7 +42,7 @@ export const useFeedbackItemssStore = create<Store>((set, get) => ({
 
             // fetch return promise
             const response = await fetch(
-                "/api/postFeedback",
+                "https://talk-point-ts-ybwv.vercel.app/api/postFeedback",
                 {
                     method: "POST",
                     body: JSON.stringify(newItem),
@@ -79,7 +79,7 @@ export const useFeedbackItemssStore = create<Store>((set, get) => ({
         }))
 
         try {
-            const response = await fetch("/api/getFeedback")
+            const response = await fetch("https://talk-point-ts-ybwv.vercel.app/api/getFeedback")
 
             if (!response.ok) {
                 console.log(response);
