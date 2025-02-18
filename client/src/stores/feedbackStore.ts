@@ -84,7 +84,6 @@ export const useFeedbackItemssStore = create<Store>((set, get) => ({
             if (!response.ok) {
                 console.log(response);
 
-
                 throw new Error()
             }
 
