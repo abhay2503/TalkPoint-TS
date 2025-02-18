@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 // import cors from "cors";
 const db_1 = __importDefault(require("./utils/db"));
-const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
 const PORT = 3000;
 // app.use(cors());
@@ -40,8 +39,12 @@ app.post("/api/postFeedback", async (req, res) => {
         res.status(401).json({ msg: "Server Error" });
     }
 });
-app.use(express_1.default.static(path_1.default.join(__dirname, '../../client/dist')));
-app.get('*', (req, res) => res.sendFile(path_1.default.resolve(__dirname, '../../', 'client', 'dist', 'index.html')));
+// app.use(express.static(path.join(__dirname, '../../client/dist')));
+// app.get('*', (req, res) =>
+//     res.sendFile(
+//         path.resolve(__dirname, '../../', 'client', 'dist', 'index.html')
+//     )
+// );
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
